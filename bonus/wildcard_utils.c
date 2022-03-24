@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 03:49:45 by anremiki          #+#    #+#             */
-/*   Updated: 2022/03/22 16:41:14 by cmarouf          ###   ########.fr       */
+/*   Updated: 2022/03/24 19:10:26 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ int	check_empty(char *find)
 
 int	skip_wild(char *find, int i)
 {
+	if (!find[i])
+		return (i);
 	while (find[i] && find[i] == '*')
 		i++;
 	return (i);
 }
 
-int	check_wild(char *find)
+int	check_wild(char *find, char *curr)
 {
 	int	i;
 	int	check;
@@ -48,10 +50,17 @@ int	check_wild(char *find)
 			check++;
 		i++;
 	}
-	return (check);
+	return (check_last(find, curr, check));
 }
 
-int	check_last(char	*find, char *curr)
+int	check_final(int checker, char *find, char *curr)
+{
+	if (checker == check_wild(find, curr))
+		return (1);
+	return (0);
+}
+
+int	check_last(char	*find, char *curr, int check)
 {
 	int	i;
 	int	j;
@@ -61,17 +70,17 @@ int	check_last(char	*find, char *curr)
 	while (find[i + 1])
 		i++;
 	if (find[i] == '*')
-		return (1);
+		return (check);
 	if (ft_strlen(curr) > 1)
 	{
 		while (curr[j + 1])
 		{
 			if (curr[j] == '/')
-				return (0);
+				return (-1);
 			j++;
 		}
 	}
 	if (find[i] != curr[j])
-		return (0);
-	return (1);
+		return (-1);
+	return (check);
 }

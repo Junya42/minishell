@@ -6,7 +6,7 @@
 /*   By: cmarouf <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 14:11:00 by cmarouf           #+#    #+#             */
-/*   Updated: 2022/03/14 13:22:36 by cmarouf          ###   ########.fr       */
+/*   Updated: 2022/03/24 19:10:12 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minishell.h"
@@ -25,6 +25,35 @@ void	transform(char *str, int i, int j)
 		if (str[j] == ' ' || (str[j] >= 9 && str[j] <= 13))
 			str[j] = -24;
 		j++;
+	}
+}
+
+void	black_star(char *str, int i, int j)
+{
+	int	k;
+
+	k = 0;
+	if (str)
+	{
+		while (str[i])
+		{
+			if (str[i] == 42 && (check_quotes(str + k, i - j) == 0))
+				str[i] = -42;
+			i++;
+		}
+	}
+}
+
+void	handle_wildcard(char *str, int i)
+{
+	if (str)
+	{
+		while (str[i])
+		{
+			if ((str[i] == '\"' || str[i] == '\'') && str[i + 1])
+				return (black_star(str, 0, 0));
+			i++;
+		}
 	}
 }
 
@@ -51,5 +80,6 @@ char	*smart_transform(char *str)
 		if (i != j)
 			transform(str, i, j);
 	}
+	handle_wildcard(str, 0);
 	return (treat_pipe(str));
 }

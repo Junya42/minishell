@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 02:13:51 by anremiki          #+#    #+#             */
-/*   Updated: 2022/03/22 16:03:10 by cmarouf          ###   ########.fr       */
+/*   Updated: 2022/03/24 17:13:36 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 char	*no_match(char *find, char *wildcard)
 {
 	free(wildcard);
+	revert_wild(find);
 	return (find);
 }
 
@@ -63,13 +64,15 @@ char	*wildclean(char	**wilds, char *unparsed)
 	return (wild);
 }
 
-char	*wildsort(char	*wildcard)
+char	*wildsort(char	*wildcard, char *find)
 {
 	char	**wilds;
 	int		i;
 	int		j;
 
+	revert_wild(wildcard);
 	wilds = ft_split(wildcard);
+	revert_wild(find);
 	if (!wilds)
 		return (wildcard);
 	i = -1;
@@ -111,5 +114,5 @@ char	*wildcard(char *find, int i)
 	}
 	if (!i)
 		return (no_match(find, wildc));
-	return (wildsort(wildc));
+	return (wildsort(wildc, find));
 }

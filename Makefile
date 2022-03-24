@@ -6,7 +6,7 @@
 #    By: cmarouf <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/24 15:54:09 by cmarouf           #+#    #+#              #
-#    Updated: 2022/03/24 00:40:22 by anremiki         ###   ########.fr        #
+#    Updated: 2022/03/24 18:27:53 by anremiki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,7 @@ SRCS = main/main.c \
 	  bonus/wildcard.c	\
 	  bonus/wildcard_utils.c	\
 	  bonus/wildcard_utils_2.c	\
+	  bonus/wildcard_classic.c	\
 
 OBJS = ${SRCS:.c=.o}
 

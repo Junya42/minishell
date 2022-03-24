@@ -6,7 +6,7 @@
 /*   By: cmarouf <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:02:19 by cmarouf           #+#    #+#             */
-/*   Updated: 2022/03/24 02:02:47 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/03/24 18:55:01 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -293,10 +293,15 @@ int		check_cmdpath(char *absol, t_pipe *pipe);
 /* BONUS */
 char	*wildcard(char	*find, int i);
 int		explorer(char *find, char *curr);
-int		check_last(char	*find, char *curr);
-int		check_wild(char *find);
+int		check_last(char	*find, char *curr, int check);
+int		check_wild(char *find, char *curr);
 int		skip_wild(char *find, int i);
 int		check_empty(char *find);
+void	revert_wild(char *find);
+int		check_occurence(t_wild *wild, char *curr, char *find);
+int		do_explorer(char *find, char *curr, t_wild *wild);
+int		check_final(int checker, char *find, char *curr);
+/*	BONUS	*/
 
 void	sigdoc(void);
 void	sigchild(void);
