@@ -14,6 +14,7 @@ The goal of this project was to rebuild a bash-like shell from scratch with the 
 - pipes
 - quotes
 - working history
+- exit codes
 - Bonus : wildcards
 
 In addition i decided to add a custom colored prompt for the look and the ability to execute commands within files :
