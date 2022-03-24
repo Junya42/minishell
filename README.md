@@ -7,6 +7,7 @@ This is a school project done in C, with only a limited number of authorized fun
 ![subjectminishell](https://user-images.githubusercontent.com/59654989/160003049-09fc6cc1-2d32-45f7-bec7-034998d6992d.PNG)
 
 The goal of this project was to rebuild a bash-like shell from scratch with the implementation of :
+- processes
 - signals
 - redirections
 - builtins
