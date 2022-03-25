@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 02:13:51 by anremiki          #+#    #+#             */
-/*   Updated: 2022/03/25 19:10:57 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/03/25 20:46:21 by cmarouf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 char	*no_match(char *find, char *wildcard)
 {
 	free(wildcard);
-	printf("find = %s\n", find);
 	revert_wild(find);
-	printf("rfind = %s\n", find);
 	return (find);
 }
 
