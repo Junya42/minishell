@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:28:35 by anremiki          #+#    #+#             */
-/*   Updated: 2022/03/24 02:00:41 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/03/25 19:13:44 by anremiki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minishell.h"
@@ -28,6 +28,7 @@ t_pipe	*init_init(t_core *c, t_list *lexer, int flag)
 		c->tilde = lexer->content;
 		if (check_wildcard(c->tilde))
 			c->tilde = wildcard(c->tilde, 0);
+		revert_wild(c->tilde);
 		return (NULL);
 	}
 	return (NULL);
