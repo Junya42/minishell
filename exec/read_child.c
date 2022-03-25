@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 00:09:41 by anremiki          #+#    #+#             */
-/*   Updated: 2022/03/23 21:20:49 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/03/25 17:22:09 by cmarouf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	read_child(char	*file, t_data *data, int i, t_clear *clear)
 	close(c.fd);
 	clean_loop(data->fd, data->total);
 	wait_process(data, 500, 0, 0);
-	sglt_ci(ft_strdup("/home/anremiki/42/minishelln/.secret/magic"));
+	sglt_ci(ft_strdup("/mnt/nfs/homes/cmarouf/linux/minishell/.secret/magic"));
 	if (data->handler == 130)
 		execve((char *)g_sglt->content, ft_split((char *)g_sglt->content),
 			ft_lstsplit(clear->tenv));

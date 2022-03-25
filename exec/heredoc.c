@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 00:55:16 by anremiki          #+#    #+#             */
-/*   Updated: 2022/03/21 15:21:05 by cmarouf          ###   ########.fr       */
+/*   Updated: 2022/03/25 17:24:36 by cmarouf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ void	make_heredoc(t_dir *dir, t_list **tenv, t_data *data, t_clear *clear)
 	data->child = 0;
 	home = get_tenv(tenv, "HOME");
 	if (!home)
-		dir->name = ft_strjoin3("../", fd_name());
-	else if (doc_strncmp(home, "../", 15) == 0)
+		dir->name = ft_strjoin3("/mnt/nfs/homes/cmarouf/", fd_name());
+	else if (doc_strncmp(home, "/mnt/nfs/homes/cmarouf/", 15) == 0)
 		dir->name = joinfile(get_tenv(tenv, "HOME"), fd_name());
 	else
-		dir->name = ft_strjoin3("../", fd_name());
+		dir->name = ft_strjoin3("/mnt/nfs/homes/cmarouf/", fd_name());
 	fd = open(dir->name, O_RDWR | O_TRUNC | O_CREAT, 0644);
 	if (fd == -1)
 	{

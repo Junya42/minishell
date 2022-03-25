@@ -6,7 +6,7 @@
 #    By: cmarouf <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/24 15:54:09 by cmarouf           #+#    #+#              #
-#    Updated: 2022/03/24 18:27:53 by anremiki         ###   ########.fr        #
+#    Updated: 2022/03/25 18:19:07 by cmarouf          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,28 +91,39 @@ CFLAGS = -Wall -Wextra -Werror -D BUFFER_SIZE=1
 
 PRINT = 0
 
+BONUS = 0
+
 NAME = minishell
 
 ifdef WITH_PRINT
 	PRINT = 1
 endif
 
+ifdef WITH_BONUS
+	BONUS = 1
+endif
 
 .c.o:
-	${CC} -I includes ${CFLAGS} -g3 -D PRINT=$(PRINT) -c $< -o ${<:.c=.o}
+	${CC} -I includes ${CFLAGS} -g3 -D PRINT=$(PRINT) -D BONUS=$(BONUS) -c $< -o ${<:.c=.o}
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	make bonus -C ./libft
-	$(CC) $(CFLAGS) -D PRINT=$(PRINT) -g3 $(OBJS) ./libft/libft.a -lreadline -o $(NAME)
+	$(CC) $(CFLAGS) -D PRINT=$(PRINT) -D BONUS=$(BONUS) -g3 $(OBJS) ./libft/libft.a -lreadline -o $(NAME)
 
 debug: $(OBJS)
 	make bonus -C ./libft
-	$(CC) $(CFLAGS) -D PRINT=$(PRINT) -g3 $(OBJS) ./libft/libft.a -lreadline -o $(NAME)
+	$(CC) $(CFLAGS) -D PRINT=$(PRINT) -D BONUS=$(BONUS) -g3 $(OBJS) ./libft/libft.a -lreadline -o $(NAME)
 
 p: fclean
 	$(MAKE) WITH_PRINT=1
+
+bonus: fclean
+	$(MAKE) WITH_BONUS=1
+
+bp: fclean
+	$(MAKE) WITH_BONUS=1 WITH_PRINT=1
 
 clean:
 	$(RM) $(OBJS)

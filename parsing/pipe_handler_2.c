@@ -6,7 +6,7 @@
 /*   By: cmarouf <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:47:44 by cmarouf           #+#    #+#             */
-/*   Updated: 2022/03/21 17:54:49 by cmarouf          ###   ########.fr       */
+/*   Updated: 2022/03/25 18:19:55 by cmarouf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minishell.h"
@@ -66,7 +66,7 @@ int	check_wildcard(char	*find)
 	i = 0;
 	while (find[i])
 	{
-		if (find[i] == '*')
+		if (find[i] == '*' && BONUS)
 			return (1);
 		i++;
 	}

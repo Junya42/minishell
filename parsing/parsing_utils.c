@@ -6,7 +6,7 @@
 /*   By: cmarouf <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 14:11:00 by cmarouf           #+#    #+#             */
-/*   Updated: 2022/03/24 19:10:12 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/03/25 18:49:36 by cmarouf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minishell.h"
@@ -46,6 +46,8 @@ void	black_star(char *str, int i, int j)
 
 void	handle_wildcard(char *str, int i)
 {
+	if (!BONUS)
+		return ;
 	if (str)
 	{
 		while (str[i])

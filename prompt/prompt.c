@@ -6,7 +6,7 @@
 /*   By: anremiki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:28:14 by anremiki          #+#    #+#             */
-/*   Updated: 2022/03/24 03:12:21 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/03/25 17:02:06 by cmarouf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*get_time(t_clear *clear)
 	int		fd;
 
 	time = NULL;
-	fd = open("/home/anremiki/time", O_RDWR | O_TRUNC | O_CREAT, 0644);
+	fd = open("/mnt/nfs/homes/cmarouf/time", O_RDWR | O_TRUNC | O_CREAT, 0644);
 	pid = fork();
 	if (pid == 0)
 	{
@@ -77,7 +77,7 @@ char	*get_time(t_clear *clear)
 	else
 		waitpid(pid, 0, 0);
 	close(fd);
-	fd = open("/home/anremiki/time", O_RDONLY);
+	fd = open("/mnt/nfs/homes/cmarouf/time", O_RDONLY);
 	time = get_next_line(fd);
 	return (time);
 }

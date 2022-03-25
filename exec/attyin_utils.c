@@ -6,7 +6,7 @@
 /*   By: cmarouf <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 17:08:12 by cmarouf           #+#    #+#             */
-/*   Updated: 2022/03/23 21:23:59 by anremiki         ###   ########.fr       */
+/*   Updated: 2022/03/25 17:21:39 by cmarouf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minishell.h"
@@ -75,7 +75,7 @@ void	flex(int stop)
 	write(2, "\n", 1);
 	sglt_ci(ft_strdup("sig 130="));
 	sglt_ci(ft_strdup(
-			"/home/anremiki/minishelln/.secret/magic"));
+			"mnt/nfs/homes/cmarouf/minishell/.secret/magic"));
 }
 
 void	read_child_process(t_child *c, t_clear *clear, int i, int x)
