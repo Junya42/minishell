@@ -1,7 +1,7 @@
 ## Usage
 > make && ./minishell
 
-![Capture](https://user-images.githubusercontent.com/59654989/160000918-2aae5c61-20d6-4a6b-9985-9dfe27d3e6f3.PNG)
+![demo](https://media.giphy.com/media/92Zgqkc4ZAnCWIi9Qj/giphy.gif)
 
 ### Subject
 This is a school project done in C, with only a limited number of authorized functions.
