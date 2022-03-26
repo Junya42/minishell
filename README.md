@@ -25,5 +25,4 @@ In addition i decided to add a custom colored prompt for the look and the abilit
 - ./file
 - /full/path/to/file
 - upgrade
-
 ![Noteminishell](https://user-images.githubusercontent.com/59654989/160242336-4f3fc21f-e6b4-4e87-aeb5-97f9fa35e5ec.PNG)
